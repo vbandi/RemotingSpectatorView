@@ -1,0 +1,709 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>$(DefineConstants);UNITY_2019_4_2;UNITY_2019_4;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;UNITY_ASTC_ONLY_DECOMPRESS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER</DefineConstants>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(IsEditorOnlyTarget)' == 'false' OR '$(IsEditorOnlyTarget)' == ''">
+    <AssemblySearchPaths>$(AssemblySearchPaths);C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\Managed;C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\ref\2.0.0;C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard;C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\Extensions\2.0.0;C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx</AssemblySearchPaths>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsEditorOnlyTarget)' == 'false' OR '$(IsEditorOnlyTarget)' == ''">
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="UnityEngine">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="netstandard">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="Microsoft.Win32.Primitives">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.AppContext">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.AppContext.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Collections.Concurrent">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Collections.Concurrent.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Collections">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Collections.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Collections.NonGeneric">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Collections.Specialized">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Collections.Specialized.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.ComponentModel">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.ComponentModel.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.ComponentModel.Primitives">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Console">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Console.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Data.Common">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Data.Common.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.Contracts">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.Debug">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.Debug.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.Process">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.StackTrace">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.Tools">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.Tools.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.TraceSource">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Diagnostics.Tracing">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Diagnostics.Tracing.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Drawing.Primitives">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Dynamic.Runtime">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Dynamic.Runtime.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Globalization.Calendars">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Globalization">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Globalization.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Globalization.Extensions">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Globalization.Extensions.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.Compression">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.Compression.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.Compression.ZipFile">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.FileSystem">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.FileSystem.DriveInfo.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.IsolatedStorage">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.IsolatedStorage.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.MemoryMappedFiles.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.Pipes">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.Pipes.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.IO.UnmanagedMemoryStream.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Linq">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Linq.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Linq.Expressions">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Linq.Parallel">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Linq.Parallel.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Linq.Queryable">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Linq.Queryable.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.Http">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.Http.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.NameResolution">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.NameResolution.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.NetworkInformation">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.NetworkInformation.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.Ping">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.Ping.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.Primitives">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.Primitives.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.Requests">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.Requests.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.Security">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.Security.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.Sockets">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.Sockets.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.WebHeaderCollection">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.WebHeaderCollection.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.WebSockets.Client">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net.WebSockets">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Net.WebSockets.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.ObjectModel">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.ObjectModel.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Reflection">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Reflection.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Reflection.Extensions">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Reflection.Extensions.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Reflection.Primitives">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Reflection.Primitives.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Resources.Reader">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Resources.Reader.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Resources.ResourceManager">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Resources.ResourceManager.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Resources.Writer">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Resources.Writer.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.Extensions">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.Handles">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.Handles.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.InteropServices">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.Numerics">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.Numerics.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.Serialization.Json">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.Serialization.Json.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Security.Claims">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Security.Claims.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Security.Cryptography.Csp">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Security.Cryptography.Csp.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Security.Principal">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Security.Principal.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Security.SecureString">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Security.SecureString.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Text.Encoding">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Text.Encoding.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Text.Encoding.Extensions">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Text.Encoding.Extensions.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Text.RegularExpressions">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Threading">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Threading.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Threading.Overlapped">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Threading.Overlapped.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Threading.Tasks">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Threading.Tasks.Parallel.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Threading.Thread">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Threading.Thread.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Threading.ThreadPool">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Threading.Timer">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Threading.Timer.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.ValueTuple">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.ValueTuple.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml.ReaderWriter">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml.XDocument">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Xml.XDocument.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml.XmlDocument">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml.XmlSerializer">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml.XPath">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Xml.XPath.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml.XPath.XDocument">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Numerics.Vectors">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="mscorlib">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\mscorlib.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.ComponentModel.Composition">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Core">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Core.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Data">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Data.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Drawing">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Drawing.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.IO.Compression.FileSystem">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.IO.Compression.FileSystem.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Net">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Net.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Numerics">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Numerics.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Runtime.Serialization">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.ServiceModel.Web">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.ServiceModel.Web.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Transactions">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Transactions.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Web">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Web.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Windows">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Windows.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml.Linq">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Linq.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="System.Xml.Serialization">
+      <Private>false</Private>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+  </ItemGroup>
+</Project>

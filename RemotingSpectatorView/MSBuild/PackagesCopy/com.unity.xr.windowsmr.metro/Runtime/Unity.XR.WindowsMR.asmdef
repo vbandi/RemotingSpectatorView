@@ -1,0 +1,13 @@
+{
+    "name": "Unity.XR.WindowsMR",
+    "references": [
+    	"Unity.ugui"
+    ],
+    "optionalUnityReferences": [],
+  "includePlatforms": [
+    "Editor",
+    "WSA"
+  ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
