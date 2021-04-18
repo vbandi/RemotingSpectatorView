@@ -1,4 +1,5 @@
-﻿using System.Timers;
+﻿using System.Collections.Generic;
+using System.Timers;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class RemotingSpectatorView : MonoBehaviour
     public RawImage Image;
     public int CameraIndex = 0;
     public float CameraDistanceFromHead = 0.6f;
-    
+
     void Awake()
     {
         SetPositionInFrontOfMainCamera();
@@ -27,7 +28,7 @@ public class RemotingSpectatorView : MonoBehaviour
 
     private void OnEnable()
     {
-        var devices = WebCamTexture.devices; 
+        var devices = WebCamTexture.devices;
         _webCamtexture = new WebCamTexture(devices[CameraIndex].name);
         Image.texture = _webCamtexture;
         _webCamtexture.Play();
@@ -37,7 +38,6 @@ public class RemotingSpectatorView : MonoBehaviour
     {
         _webCamtexture.Stop();
     }
-    
 }
 
 
@@ -54,7 +54,7 @@ public class FixedCameraWindow : EditorWindow
         GetWindow<FixedCameraWindow>();
         EnsurePrefabLoaded();
     }
-    
+
     private static void EnsurePrefabLoaded()
     {
         if (Application.isPlaying && FindObjectOfType<RemotingSpectatorView>())
@@ -97,13 +97,12 @@ public class FixedCameraWindow : EditorWindow
 
 public class FixedCameraWindow2 : EditorWindow
 {
-
     private Texture _texture;
 
     private Timer _timer;
 
     private bool _isRunning = false;
-    
+
     private WebCamTexture _webCamtexture;
     public RawImage Image;
 
@@ -125,8 +124,17 @@ public class FixedCameraWindow2 : EditorWindow
 
     private void OnGUI()
     {
-        CameraIndex = EditorGUILayout.IntField(CameraIndex);
+        List<string> deviceNames = new List<string>();
 
+        deviceNames.Add("None");
+        for (int i = 0; i < WebCamTexture.devices.Length; i++)
+        {
+            deviceNames.Add(WebCamTexture.devices[i].name);
+        }
+
+        int selectedDevice = EditorGUILayout.Popup(CameraIndex + 1, deviceNames.ToArray());
+        CameraIndex = selectedDevice - 1;
+        
         if (_isRunning)
         {
             if (GUILayout.Button("Stop"))
@@ -144,13 +152,16 @@ public class FixedCameraWindow2 : EditorWindow
     // ReSharper disable Unity.PerformanceAnalysis
     private void Start()
     {
-        _isRunning = true;
-        var devices = WebCamTexture.devices; 
-        _webCamtexture = new WebCamTexture(devices[CameraIndex].name);
-        // Image.texture = _webCamtexture;
-        _webCamtexture.Play();
+        if (CameraIndex != -1)
+        {
+            _isRunning = true;
+            var devices = WebCamTexture.devices;
+            _webCamtexture = new WebCamTexture(devices[CameraIndex].name);
+            // Image.texture = _webCamtexture;
+            _webCamtexture.Play();
+        }
     }
-    
+
     // ReSharper disable Unity.PerformanceAnalysis
     private void Stop()
     {
