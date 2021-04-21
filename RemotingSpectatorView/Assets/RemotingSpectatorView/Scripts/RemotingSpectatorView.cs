@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -149,8 +150,8 @@ public class FixedCameraWindow : EditorWindow
         var isPlaying = EditorIsPlaying;
 
         List<string> deviceNames = new List<string>();
-        deviceNames.Add("None / Off");
-        
+        deviceNames.Add("None | Off");
+
         for (int i = 0; i < WebCamTexture.devices.Length; i++)
         {
             deviceNames.Add(WebCamTexture.devices[i].name);
@@ -179,7 +180,12 @@ public class FixedCameraWindow : EditorWindow
             if (EditorIsPlaying)
             {
                 GUILayout.BeginHorizontal();
-                _target.CameraDistanceFromHead = EditorGUILayout.FloatField("Distance from camera", _target.CameraDistanceFromHead);
+                float targetDistance = EditorGUILayout.FloatField("Distance from camera", _target.CameraDistanceFromHead);
+                if (Math.Abs(targetDistance - _target.CameraDistanceFromHead) > 0.001f)
+                {
+                    _target.CameraDistanceFromHead = targetDistance;
+                }
+
 
                 if (GUILayout.Button("Reset Spectator Camera Position"))
                 {
