@@ -207,7 +207,7 @@ public class FixedCameraWindow : EditorWindow
 
                 if (GUI.Button(new Rect(0, 60, position.width, 15), "Reset Spectator Camera Position"))
                 {
-                    StopCamera();
+                    _target.SetPositionInFrontOfMainCamera();
                 }
             }
 
