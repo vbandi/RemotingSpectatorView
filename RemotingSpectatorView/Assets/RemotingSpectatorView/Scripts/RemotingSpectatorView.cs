@@ -89,7 +89,7 @@ public class RemotingSpectatorView : MonoBehaviour
 
 
 #if UNITY_EDITOR
-public class FixedCameraWindow : EditorWindow
+public class RemotingSpectatorViewWindow : EditorWindow
 {
     private bool IsRunning => EditorApplication.isPlaying ? _target.IsRunning : _isRunning;
     private Texture RenderTexture => _renderTexture ? _renderTexture : _webCamtexture;
@@ -130,10 +130,10 @@ public class FixedCameraWindow : EditorWindow
     private string[] _deviceNames;
 
 
-    [MenuItem("FixedCamera/Show window")]
+    [MenuItem("RemotingSpectatorView/Show window")]
     private static void ShowWindow()
     {
-        GetWindow<FixedCameraWindow>();
+        GetWindow<RemotingSpectatorViewWindow>();
         EnsurePrefabLoaded();
     }
 
