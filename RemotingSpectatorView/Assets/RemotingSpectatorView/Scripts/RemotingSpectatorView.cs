@@ -102,6 +102,10 @@ public class RemotingSpectatorViewWindow : EditorWindow
             {
                 _editorIsPlaying = EditorApplication.isPlaying;
 
+                   
+                SetPlayerprefsToTarget();
+
+
                 if (_editorIsPlaying && _isRunning)
                 {
                     StopPreview();
@@ -111,6 +115,14 @@ public class RemotingSpectatorViewWindow : EditorWindow
 
             return _editorIsPlaying;
         }
+    }
+
+    private static void SetPlayerprefsToTarget()
+    {
+        EnsurePrefabLoaded();
+        _target.CameraIndex = EditorPrefs.GetInt("CameraIndex", 1) - 1;
+        _target.CameraDistanceFromHead = EditorPrefs.GetFloat("DistanceFromHead", .6f);
+        _target.Camera.fieldOfView = EditorPrefs.GetFloat("FieldOfView", 60);
     }
 
     [SerializeField]
@@ -154,6 +166,7 @@ public class RemotingSpectatorViewWindow : EditorWindow
     private void Awake()
     {
         LoadDevices();
+        SetPlayerprefsToTarget();
     }
 
     private void LoadDevices()
@@ -195,6 +208,9 @@ public class RemotingSpectatorViewWindow : EditorWindow
             bool isRunning = IsRunning;
             StopCamera();
             _target.CameraIndex = selectedDevice - 1;
+
+            EditorPrefs.SetInt("CameraIndex", selectedDevice);
+
             if (isRunning)
             {
                 StartCamera();
@@ -213,12 +229,14 @@ public class RemotingSpectatorViewWindow : EditorWindow
                 float targetDistance = EditorGUI.FloatField(new Rect(0, 40, position.width / 2f, 15), "Distance from camera", _target.CameraDistanceFromHead);
                 if (Math.Abs(targetDistance - _target.CameraDistanceFromHead) > 0.001f)
                 {
+                    EditorPrefs.SetFloat("DistanceFromHead", targetDistance);
                     _target.CameraDistanceFromHead = targetDistance;
                 }
 
                 float fov = EditorGUI.FloatField(new Rect(position.width / 2f, 40, position.width / 2f, 15), "Camera FOV", _target.Camera.fieldOfView);
                 if (Math.Abs(fov - _target.Camera.fieldOfView) > 0.001f)
                 {
+                    EditorPrefs.SetFloat("FieldOfView", fov);
                     _target.Camera.fieldOfView = fov;
                 }
 
@@ -241,9 +259,9 @@ public class RemotingSpectatorViewWindow : EditorWindow
             {
                 StartCamera();
             }
+
+            GUI.Label(new Rect(0, 35, position.width, 50), "Press start to stream from camera");
         }
-        
-        GUI.Label(new Rect(0, 20, position.width, 50), "Press start to stream from camera");
     }
 
     private void StartCamera()
