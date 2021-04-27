@@ -91,8 +91,13 @@ public class RemotingSpectatorView : MonoBehaviour
 #if UNITY_EDITOR
 public class RemotingSpectatorViewWindow : EditorWindow
 {
-    private bool IsRunning => EditorApplication.isPlaying ? _target.IsRunning : _isRunning;
+    [SerializeField]
+    private bool _foldout;
+
+    private bool IsCameraRunning => EditorApplication.isPlaying ? _target.IsRunning : _isRunning;
     private Texture RenderTexture => _renderTexture ? _renderTexture : _webCamtexture;
+
+    private float _margin = 10f;
 
     private bool EditorIsPlaying
     {
@@ -102,7 +107,7 @@ public class RemotingSpectatorViewWindow : EditorWindow
             {
                 _editorIsPlaying = EditorApplication.isPlaying;
 
-                   
+
                 SetPlayerprefsToTarget();
 
 
@@ -115,6 +120,46 @@ public class RemotingSpectatorViewWindow : EditorWindow
 
             return _editorIsPlaying;
         }
+    }
+
+    enum RectPosition
+    {
+        Start,
+        End,
+        Full,
+        Image
+    }
+
+    private Rect GetNextRect(int line, float startPosition, RectPosition rectPosition, float width, int height = 0)
+    {
+        var rect = new Rect();
+
+        rect.y = 5f + line * 18f + line * 5f;
+        rect.height = height == 0f ? 18f : height;
+
+        switch (rectPosition)
+        {
+            case RectPosition.Start:
+                rect.x = _margin;
+                rect.width = position.width * width - _margin * 1.5f;
+                break;
+            case RectPosition.End:
+                rect.x = position.width * startPosition + _margin * 0.5f;
+                rect.width = position.width - (position.width * startPosition) - _margin * 1.5f;
+                break;
+            case RectPosition.Image:
+                rect.height = position.height - rect.y - _margin;
+                rect.x = _margin;
+                rect.width = position.width - _margin * 2f;
+                break;
+            case RectPosition.Full:
+                rect.x = _margin;
+                rect.width = position.width - _margin * 2f;
+                break;
+        }
+
+
+        return rect;
     }
 
     private static void SetPlayerprefsToTarget()
@@ -142,11 +187,19 @@ public class RemotingSpectatorViewWindow : EditorWindow
     private string[] _deviceNames;
 
 
-    [MenuItem("RemotingSpectatorView/Show window")]
+    [MenuItem("Remoting Spectator View/Show window")]
     private static void ShowWindow()
     {
-        GetWindow<RemotingSpectatorViewWindow>();
+        GetWindow<RemotingSpectatorViewWindow>("Remoting Spectator View");
         EnsurePrefabLoaded();
+    }
+
+    private void OnDestroy()
+    {
+        if (IsCameraRunning)
+        {
+            StopCamera();
+        }
     }
 
     private static void EnsurePrefabLoaded()
@@ -184,7 +237,7 @@ public class RemotingSpectatorViewWindow : EditorWindow
 
     private void Update()
     {
-        if (IsRunning)
+        if (IsCameraRunning)
         {
             Repaint();
         }
@@ -192,6 +245,7 @@ public class RemotingSpectatorViewWindow : EditorWindow
 
     private void OnGUI()
     {
+        int rowNumber = 0;
         EnsurePrefabLoaded();
 
         var isPlaying = EditorIsPlaying;
@@ -201,11 +255,11 @@ public class RemotingSpectatorViewWindow : EditorWindow
             LoadDevices();
         }
 
-        int selectedDevice = EditorGUI.Popup(new Rect(0, 0, position.width, 15), _target.CameraIndex + 1, _deviceNames);
+        int selectedDevice = EditorGUI.Popup(GetNextRect(rowNumber, 0f, RectPosition.Start, 0.66f), _target.CameraIndex + 1, _deviceNames);
 
         if (selectedDevice - 1 != _target.CameraIndex)
         {
-            bool isRunning = IsRunning;
+            bool isRunning = IsCameraRunning;
             StopCamera();
             _target.CameraIndex = selectedDevice - 1;
 
@@ -217,50 +271,91 @@ public class RemotingSpectatorViewWindow : EditorWindow
             }
         }
 
-        if (IsRunning)
+        if (GUI.Button(GetNextRect(rowNumber, .66f, RectPosition.End, 0.33f), (IsCameraRunning ? "Stop" : "Play") + (isPlaying ? "" : " preview")))
         {
-            if (GUI.Button(new Rect(0, 20, position.width, 15), "Stop" + (isPlaying ? "" : " preview")))
+            if (IsCameraRunning)
             {
                 StopCamera();
             }
-
-            if (EditorIsPlaying)
-            {
-                float targetDistance = EditorGUI.FloatField(new Rect(0, 40, position.width / 2f, 15), "Distance from camera", _target.CameraDistanceFromHead);
-                if (Math.Abs(targetDistance - _target.CameraDistanceFromHead) > 0.001f)
-                {
-                    EditorPrefs.SetFloat("DistanceFromHead", targetDistance);
-                    _target.CameraDistanceFromHead = targetDistance;
-                }
-
-                float fov = EditorGUI.FloatField(new Rect(position.width / 2f, 40, position.width / 2f, 15), "Camera FOV", _target.Camera.fieldOfView);
-                if (Math.Abs(fov - _target.Camera.fieldOfView) > 0.001f)
-                {
-                    EditorPrefs.SetFloat("FieldOfView", fov);
-                    _target.Camera.fieldOfView = fov;
-                }
-
-                if (GUI.Button(new Rect(0, 60, position.width, 15), "Reset Spectator Camera Position"))
-                {
-                    _target.SetPositionInFrontOfMainCamera();
-                }
-            }
-
-            if (RenderTexture != null)
-            {
-                float aspectRatio = RenderTexture.height / (float) RenderTexture.width;
-                EditorGUI.DrawPreviewTexture(new Rect(0, EditorIsPlaying ? 80 : 40, position.width, position.width * aspectRatio), RenderTexture, null, ScaleMode.StretchToFill);
-                // GUILayout.Label(RenderTexture);
-            }
-        }
-        else
-        {
-            if (GUI.Button(new Rect(0, 20, position.width, 15), "Start" + (isPlaying ? "" : " preview")))
+            else
             {
                 StartCamera();
             }
+        }
 
-            GUI.Label(new Rect(0, 35, position.width, 50), "Press start to stream from camera");
+        rowNumber++;
+
+        _foldout = EditorGUI.Foldout(GetNextRect(rowNumber, 0f, RectPosition.Full, 0f), _foldout, "Settings");
+        rowNumber++;
+
+        if (_foldout)
+        {
+            EditorGUI.BeginDisabledGroup(!isPlaying);
+
+            Rect distanceRect;
+            Rect fovRect;
+            if (position.width > 400)
+            {
+                distanceRect = GetNextRect(rowNumber, 0f, RectPosition.Start, .5f);
+                fovRect = GetNextRect(rowNumber, .5f, RectPosition.End, .5f);
+                rowNumber++;
+            }
+            else
+            {
+                distanceRect = GetNextRect(rowNumber, 0f, RectPosition.Full, 0f);
+                rowNumber++;
+                fovRect = GetNextRect(rowNumber, 0f, RectPosition.Full, 0f);
+                rowNumber++;
+            }
+
+            float targetDistance = EditorGUI.FloatField(distanceRect, "Distance from camera", _target.CameraDistanceFromHead);
+            if (Math.Abs(targetDistance - _target.CameraDistanceFromHead) > 0.001f)
+            {
+                EditorPrefs.SetFloat("DistanceFromHead", targetDistance);
+                _target.CameraDistanceFromHead = targetDistance;
+            }
+
+            float fov = EditorGUI.FloatField(fovRect, "Camera FOV", _target.Camera.fieldOfView);
+            if (Math.Abs(fov - _target.Camera.fieldOfView) > 0.001f)
+            {
+                EditorPrefs.SetFloat("FieldOfView", fov);
+                _target.Camera.fieldOfView = fov;
+            }
+
+            if (GUI.Button(GetNextRect(rowNumber, 0f, RectPosition.Full, 0f), "Reset Spectator Camera Position"))
+            {
+                _target.SetPositionInFrontOfMainCamera();
+            }
+
+            rowNumber++;
+            EditorGUI.EndDisabledGroup();
+        }
+
+        if (RenderTexture != null)
+        {
+            var imageRect = GetNextRect(rowNumber, 0f, RectPosition.Image, 0f);
+
+            float widthAspect = RenderTexture.width / (float) RenderTexture.height;
+            float rectAspect = imageRect.width / imageRect.height;
+
+            if (rectAspect > widthAspect)
+            {
+                float aspectRatio = imageRect.height / RenderTexture.height;
+                imageRect.width = RenderTexture.width * aspectRatio;
+                imageRect.x = (position.width - imageRect.width) / 2f;
+            }
+            else
+            {
+                float aspectRatio = imageRect.width / RenderTexture.width;
+                imageRect.height = RenderTexture.height * aspectRatio;
+            }
+
+            EditorGUI.DrawPreviewTexture(imageRect, RenderTexture, null, ScaleMode.StretchToFill);
+        }
+
+        if (!IsCameraRunning)
+        {
+            GUI.Label(GetNextRect(rowNumber, 0f, RectPosition.Full, 0f), "Press start to stream from camera");
         }
     }
 
