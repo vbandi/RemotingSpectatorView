@@ -278,9 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6241401521f4aa42a79ffa871aef4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image: {fileID: 5712283421600490330}
-  CameraIndex: 1
-  CameraDistanceFromHead: 0.6
+  CameraIndex: 0
+  _cameraDistanceFromHead: 0.6
 --- !u!1 &5712283422150641962
 GameObject:
   m_ObjectHideFlags: 0
