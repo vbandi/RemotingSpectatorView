@@ -1,6 +1,8 @@
 # RemotingSpectatorView
 A third person camera view that can run in the Unity Editor / Play Mode.
 
+https://user-images.githubusercontent.com/1344888/118309425-8c5bb000-b4ed-11eb-80eb-cb1e0e74a14c.mp4
+
 # Download
 Download the release or clone the repository. You will only need the contents of the Assets/RemotingSpectatorView folder in your own project
 (this is what is in the release .unitypackage file). The RemotingSpectatorView itself is not device-specific.
