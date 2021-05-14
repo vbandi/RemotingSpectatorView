@@ -5,7 +5,7 @@ public class ResetPosition : MonoBehaviour
     private Vector3 _initialPosition;
     private Quaternion _initialRotation;
 
-    public KeyCode KeyCode = KeyCode.Space;
+    public KeyCode KeyCode = KeyCode.R;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class ResetPosition : MonoBehaviour
         {
             transform.localPosition = _initialPosition;
             transform.localRotation = _initialRotation;
+            GetComponent<Rigidbody>()?.Sleep();
         }
             
     }
